@@ -11,6 +11,14 @@
     </header>
      <main>
      <a href="/host/add-home">Add Home</a>
+     <h2>Here are our registered homes:</h2>
+     <ul>
+        <% registeredHomes.forEach(home => {%>
+        <li>
+            <%= home.houseName%>
+        </li>
+        <% })%>
+     </ul>
      </main>   
 </body>
 </html>
