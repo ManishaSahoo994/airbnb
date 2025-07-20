@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>airbnb Home</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
     <header>
@@ -12,7 +13,7 @@
      <main>
      <a href="/host/add-home">Add Home</a>
      <h2>Here are our registered homes:</h2>
-     <ul>
+      <ul>
         <% registeredHomes.forEach(home => {%>
         <li>
             <%= home.houseName%>
