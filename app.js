@@ -8,7 +8,7 @@ const {hostRouter} = require("./routes/hostRouter");
 const rootDir = require("./utils/pathUtil");
 
 const app=express();
-
+//ejs setup
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
