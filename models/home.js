@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const rootDir = require("../utils/pathUtil");
 //fake database
-const registeredHomes =[];
+//const registeredHomes =[];
 
 module.exports = class Home{
 
@@ -15,14 +15,20 @@ module.exports = class Home{
     }
 
     save (){
+        Home.fetchAll((registeredHomes)=>{
         registeredHomes.push(this);
         const homeDataPath = path.join(rootDir, 'data', 'homes.json');
         fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), error =>{
         console.log("file writing concluded", error);
         });
+    });
     }
 
-    static fetchAll(){
-        return registeredHomes;
+    static fetchAll(callback){
+        const homeDataPath = path.join(rootDir, 'data','homes.json');
+        fs.readFile(homeDataPath,(err,data)=>{
+           //console.log("File read:", err, data);
+           callback(!err ? JSON.parse(data) : []);
+        });
     }
 }

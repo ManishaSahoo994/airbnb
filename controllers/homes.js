@@ -20,9 +20,10 @@ exports.postAddHome=(req,res,next)=>{
 };
 
 exports.getHomes = (req,res,next)=>{
-       const registeredHomes = Home.fetchAll();
-       console.log(registeredHomes);
-       res.render('home',{registeredHomes : registeredHomes, pageTitle : 'airbnb home', currentPage: 'Home'});
+       const registeredHomes = Home.fetchAll((registeredHomes)=>{
+             res.render('home',{registeredHomes : registeredHomes, pageTitle : 'airbnb home', currentPage: 'Home'});
+       });
+       
 };
 
 //all are in one file so no need to exports this
