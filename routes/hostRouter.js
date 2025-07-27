@@ -7,8 +7,9 @@ const hostRouter = express.Router();
 //hostRouter.get("/add-home", getAddHome);
 
 //like this 
-const homesController = require("../controllers/homes");
-hostRouter.get("/add-home", homesController.getAddHome);
+const hostController = require("../controllers/hostController");
+hostRouter.get("/add-home", hostController.getAddHome);
+hostRouter.post("/add-home",hostController.postAddHome);
+hostRouter.get("/host-home-list",hostController.getHostHomes);
 
-hostRouter.post("/add-home",homesController.postAddHome);
 exports.hostRouter = hostRouter;

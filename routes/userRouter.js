@@ -5,7 +5,10 @@ const express=require("express");
 const userRouter = express.Router();
 //const rootDir = require("../utils/pathUtil");
 
-const homesController = require("../controllers/homes");
+const homesController = require("../controllers/homesController");
 
-userRouter.get("/", homesController.getHomes);
+userRouter.get("/", homesController.getIndex);
+userRouter.get("/bookings", homesController.getBookings);
+userRouter.get("/homes", homesController.getHomes);
+userRouter.get("/favourites", homesController.getFavouriteList);
  module.exports = userRouter;

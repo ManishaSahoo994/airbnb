@@ -4,6 +4,11 @@ exports.getAddHome = (req,res,next)=>{
        res.render('host/addHome',{pageTitle: 'Add Home to airbnb', currentPage: 'addHome'});
 };
 
+exports.getHostHomes = (req,res,next)=>{
+       const registeredHomes = Home.fetchAll((registeredHomes)=>{
+             res.render('host/host-home-list',{registeredHomes : registeredHomes, pageTitle : 'Host Home List', currentPage: 'host-home'});
+       });
+      };
 
 exports.postAddHome=(req,res,next)=>{
        console.log('Home Registration successful for:', req.body);
@@ -17,13 +22,6 @@ exports.postAddHome=(req,res,next)=>{
        home.save();
 
        res.render('host/homeAdded',{pageTitle: 'Home Added Successfully', currentPage: 'homeAdded'});
-};
-
-exports.getHomes = (req,res,next)=>{
-       const registeredHomes = Home.fetchAll((registeredHomes)=>{
-             res.render('store/home-list',{registeredHomes : registeredHomes, pageTitle : 'airbnb home', currentPage: 'Home'});
-       });
-       
 };
 
 //all are in one file so no need to exports this
