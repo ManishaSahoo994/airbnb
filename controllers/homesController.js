@@ -22,6 +22,13 @@ exports.getBookings = (req,res,next)=>{
               res.render('store/favourite-list',{registeredHomes : registeredHomes, pageTitle : 'My Favourites', currentPage: 'favourites'});
        });
       };
+
+      exports.getHomeDetails = (req,res,next)=>{
+       const homeId = req.params.homeId;
+       console.log("At home details page", homeId);
+        res.render('store/home-detail',{pageTitle : 'Home Detail', currentPage: 'Home'});
+       
+      };
        
 //all are in one file so no need to exports this
 //exports.registeredHomes = registeredHomes;

@@ -11,4 +11,7 @@ userRouter.get("/", homesController.getIndex);
 userRouter.get("/bookings", homesController.getBookings);
 userRouter.get("/homes", homesController.getHomes);
 userRouter.get("/favourites", homesController.getFavouriteList);
+
+userRouter.get("/homes/:homeId", homesController.getHomeDetails);
+
  module.exports = userRouter;
