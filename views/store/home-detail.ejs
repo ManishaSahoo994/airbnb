@@ -20,8 +20,9 @@
                 <p class="text-sm text-gray-700"><span class="font-semibold">Location:</span> <%= home.location %></p>
                 <p class="text-sm text-gray-700"><span class="font-semibold">Price:</span> ₹<%= home.price %> / night</p>
                 <p class="text-sm text-gray-700"><span class="font-semibold">Rating:</span> <%= home.rating %> ⭐</p>
-            </div>
+                <%- include('../partials/favourites') %>
         </div>
+       </div>
     </main>
 </body>
 </html>

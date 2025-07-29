@@ -18,7 +18,7 @@
                         <p class="text-xs text-gray-600"><span class="font-medium">Price:</span> ₹<%= home.price %> / night</p>
                         <p class="text-xs text-gray-600 mb-2"><span class="font-medium">Rating:</span> <%= home.rating %> ⭐</p>
                         <a href="/homes/<%= home.id %>" class="w-full bg-blue-500 text-white text-sm py-1 rounded text-center hover:bg-blue-400 transition block mb-2">Details</a>
-                        <button class="w-full bg-green-500 text-white text-sm py-1 rounded hover:bg-green-400 transition block">Book</button>
+                        <%- include('../partials/favourites',{home : home}) %>
                   </div>
                 </div>
             <% }) %>
