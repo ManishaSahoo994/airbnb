@@ -25,9 +25,16 @@ exports.getBookings = (req,res,next)=>{
 
       exports.getHomeDetails = (req,res,next)=>{
        const homeId = req.params.homeId;
-       console.log("At home details page", homeId);
-        res.render('store/home-detail',{pageTitle : 'Home Detail', currentPage: 'Home'});
-       
+      console.log("At home details page", homeId);
+       Home.findById(homeId, home=>{
+            if(!home){
+                  console.log("Home not found");
+                  res.redirect("/homes");
+            }else{
+             console.log("Home details found", home);
+        res.render('store/home-detail',{pageTitle : 'Home Detail', currentPage: 'Home', home : home});
+            }
+      });
       };
        
 //all are in one file so no need to exports this
