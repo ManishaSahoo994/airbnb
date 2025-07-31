@@ -34,7 +34,22 @@ exports.postAddHome=(req,res,next)=>{
        const home = new Home(houseName, price, location, rating, photoUrl);
        home.save();
 
-       res.render('host/homeAdded',{pageTitle: 'Home Added Successfully', currentPage: 'homeAdded'});
+       res.redirect("/host/host-home-list");
+};
+
+exports.postEditHome=(req,res,next)=>{
+       console.log('Home Registration successful for:', req.body);
+         
+       //there is repetation of req.body so do not use it 
+       //const home = new Home(req.body.houseName, req.body.price, req.body.location, req.body.rating, req.body.photoUrl);
+       
+       //use this better approach
+       const {id, houseName, price, location, rating, photoUrl} = req.body;
+       const home = new Home(houseName, price, location, rating, photoUrl);
+       home.id = id;
+       home.save();
+
+       res.redirect("/host/host-home-list");
 };
 
 //all are in one file so no need to exports this
