@@ -6,12 +6,13 @@
     <div class="flex justify-center mt-[2px] px-4">
         <div>
             <main class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-    <form action="/host/add-home" method="POST" class="space-y-[1px]">
-        <label for="houseName" class="block text-2xl font-bold text-center text-red-600">Register Your Home</label>
+    <form action="/host/<%= editing ? "edit-home" : "add-home"%>" method="POST" class="space-y-[1px]">
+        <label for="houseName" class="block text-2xl font-bold text-center text-red-600"><%= editing ? "Edit" : "Register"%> Your Home</label>
         <input
             type="text"
             id="houseName"
             name="houseName"
+            value="<%= editing ? home.houseName : ''%>"
             placeholder="Enter the name of your house"
             class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
             required
@@ -21,6 +22,7 @@
             type="text"
             id="price"
             name="price"
+            value="<%= editing ? home.price : ''%>"
             placeholder="Price per night"
             class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
             required
@@ -30,6 +32,7 @@
             type="text"
             id="location"
             name="location"
+            value="<%= editing ? home.location : ''%>"
             placeholder="Enter the location"
             class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
             required
@@ -39,6 +42,7 @@
             type="text"
             id="rating"
             name="rating"
+            value="<%= editing ? home.rating : ''%>"
             placeholder="Rating"
             class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
             required
@@ -48,6 +52,7 @@
             type="text"
             id="photoUrl"
             name="photoUrl"
+            value="<%= editing ? home.photoUrl : ''%>"
             placeholder="Enter photo URL"
             class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
             required
@@ -55,7 +60,7 @@
 
         <input
             type="submit"
-            value="Submit"
+            value="<%= editing ? "Update Home" : "Add Home"%>"
             class="w-full bg-red-500 text-white font-semibold py-2 px-4 rounded hover:bg-red-600 transition duration-200 cursor-pointer"
         />
     </form>
