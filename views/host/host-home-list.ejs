@@ -19,7 +19,9 @@
                         <p class="text-xs text-gray-600 mb-2"><span class="font-medium">Rating:</span> <%= home.rating %> ⭐</p>
                         <div class="flex justify-between gap-2 mt-2">
                         <a href="/host/edit-home/<%= home.id %>?editing=true" class="w-1/2 bg-blue-500 text-white text-sm py-1 rounded transition hover:bg-blue-600">Edit</a>
-                        <button class="w-1/2 bg-red-500 text-white text-sm py-1 rounded transition hover:bg-red-600">Delete</button>
+                        <form action="/host/delete-home/<%= home.id %>" method="post">
+                        <button type="submit" class="w-full bg-red-500 text-white text-sm py-1 rounded transition hover:bg-red-600">Delete</button>
+                    </form>
                     </div>
                     </div>
                 </div>
