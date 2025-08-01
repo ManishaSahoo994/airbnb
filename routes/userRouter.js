@@ -14,5 +14,7 @@ userRouter.get("/favourites", homesController.getFavouriteList);
 
 userRouter.get("/homes/:homeId", homesController.getHomeDetails);
 userRouter.post("/favourites", homesController.postAddToFavourite);
+userRouter.post("/favourites/delete/:homeId", homesController.postRemoveFromFavourite);
+
 
  module.exports = userRouter;
